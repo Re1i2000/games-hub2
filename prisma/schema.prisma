@@ -1,0 +1,171 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// Usuario
+model Usuario {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  username      String    @unique
+  senha_hash    String
+
+  perfil        Perfil?
+  scores        Score[]
+  usuarioConquistas UsuarioConquista[]
+  amizadesEnviadas Amizade[] @relation("usuario_amigos")
+  amizadesRecebidas Amizade[] @relation("usuario_amigos_de")
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+// Perfil do Usuario
+model Perfil {
+  id            String    @id @default(cuid())
+  usuario_id    String    @unique
+  usuario       Usuario   @relation(fields: [usuario_id], references: [id], onDelete: Cascade)
+
+  bio           String?
+  avatar_url    String?
+  data_nascimento DateTime?
+  cidade        String?
+
+  pontos_totais Int       @default(0)
+  nivel         Int       @default(1)
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+// Jogo
+model Jogo {
+  id            String    @id @default(cuid())
+  titulo        String
+  descricao     String?
+  categoria     Categoria
+  dificuldade   Dificuldade
+
+  cover_url     String
+  screenshots   String   @default("[]")
+
+  instrucoes    String?
+  tempo_medio   Int?
+
+  ativo         Boolean   @default(true)
+
+  scores        Score[]
+  avaliacoes    Avaliacao[]
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([categoria])
+  @@index([ativo])
+}
+
+// Score/Pontuacao
+model Score {
+  id            String    @id @default(cuid())
+  usuario_id    String
+  usuario       Usuario   @relation(fields: [usuario_id], references: [id], onDelete: Cascade)
+
+  jogo_id       String
+  jogo          Jogo      @relation(fields: [jogo_id], references: [id], onDelete: Cascade)
+
+  pontos        Int
+  tempo_jogo    Int?
+
+  createdAt     DateTime  @default(now())
+
+  @@index([usuario_id])
+  @@index([jogo_id])
+  @@index([createdAt])
+}
+
+// Avaliacao do Jogo
+model Avaliacao {
+  id            String    @id @default(cuid())
+  jogo_id       String
+  jogo          Jogo      @relation(fields: [jogo_id], references: [id], onDelete: Cascade)
+
+  usuario_id    String
+
+  estrelas      Int
+  comentario    String?
+
+  createdAt     DateTime  @default(now())
+
+  @@unique([jogo_id, usuario_id])
+}
+
+// Conquista/Badge
+model Conquista {
+  id            String    @id @default(cuid())
+  titulo        String
+  descricao     String
+  icon_url      String
+
+  condicao      String
+
+  usuarioConquistas UsuarioConquista[]
+
+  createdAt     DateTime  @default(now())
+}
+
+// Relacao muitos-para-muitos Usuario x Conquista
+model UsuarioConquista {
+  usuario_id    String
+  usuario       Usuario   @relation(fields: [usuario_id], references: [id], onDelete: Cascade)
+
+  conquista_id  String
+  conquista     Conquista @relation(fields: [conquista_id], references: [id], onDelete: Cascade)
+
+  desbloqueiAem DateTime  @default(now())
+
+  @@id([usuario_id, conquista_id])
+}
+
+// Amizade
+model Amizade {
+  id            String    @id @default(cuid())
+  usuario_id    String
+  usuario       Usuario   @relation("usuario_amigos", fields: [usuario_id], references: [id], onDelete: Cascade)
+
+  amigo_id      String
+  amigo         Usuario   @relation("usuario_amigos_de", fields: [amigo_id], references: [id], onDelete: Cascade)
+
+  status        StatusAmizade @default(PENDENTE)
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([usuario_id, amigo_id])
+  @@index([status])
+}
+
+enum Categoria {
+  ACAO
+  TERROR
+  RPG
+  PUZZLE
+  ESTRATEGIA
+  INTERACAO
+  ESPORTES
+}
+
+enum Dificuldade {
+  FACIL
+  MEDIA
+  DIFICIL
+  EXTREMA
+}
+
+enum StatusAmizade {
+  PENDENTE
+  ACEITO
+  BLOQUEADO
+}

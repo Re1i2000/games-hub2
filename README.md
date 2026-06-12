@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Games Hub 🎮
 
-## Getting Started
+Plataforma de jogos online para entretenimento e descontração com sistema de pontuação e ranking.
 
-First, run the development server:
+## Setup Rápido
 
 ```bash
+# Instalar dependências
+npm install
+
+# Criar banco de dados
+npx prisma migrate dev
+
+# Seedar dados de teste (via API)
+curl -X POST http://localhost:3000/api/seed
+
+# Iniciar servidor
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse: `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Credenciais de Teste
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Usuário 1:**
+- Email: `test1@example.com`
+- Senha: `password123`
+- Username: `player_one`
 
-## Learn More
+**Usuário 2:**
+- Email: `test2@example.com`
+- Senha: `password123`
+- Username: `gaming_pro`
 
-To learn more about Next.js, take a look at the following resources:
+## Features Implementadas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+✅ Autenticação JWT com cookies
+✅ Catálogo de jogos com filtros
+✅ Mini-games funcionais
+✅ Sistema de pontuação e ranking
+✅ Perfil de usuário com histórico
+✅ Conquistas/Badges
+✅ Design responsivo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estrutura
 
-## Deploy on Vercel
+```
+src/
+├── app/
+│   ├── api/          # API routes
+│   ├── jogos/        # Páginas de jogos
+│   ├── ranking/      # Ranking
+│   ├── perfil/       # Perfil do usuário
+│   ├── conquistas/   # Badges
+│   ├── login/signup  # Autenticação
+│   └── page.tsx      # Home
+├── components/       # Componentes React
+└── lib/             # Utilidades
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Próximas Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Mais mini-games (Space Shooter, Maze Runner)
+- [ ] Sistema de amigos
+- [ ] Multiplayer turn-based
+- [ ] Mobile app
