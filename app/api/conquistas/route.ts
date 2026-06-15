@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
       },
     });
 
-    const usuarioConquistaIds = new Set(
+    const usuarioConquistaIds = new Set<string>(
       usuarioConquistas.map((uc) => uc.conquista_id)
     );
 
