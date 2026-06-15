@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Gamepad2, Zap, Trophy, Sparkles, ArrowRight, Star, Flame, Lightning, Crown } from "lucide-react";
+import { Gamepad2, Zap, Trophy, Sparkles, ArrowRight, Star, Flame, Crown } from "lucide-react";
 
 export default function Home() {
   return (
@@ -96,7 +96,7 @@ export default function Home() {
                 gradient: "from-cyan-500/20 to-blue-500/10",
               },
               {
-                icon: Lightning,
+                icon: Zap,
                 title: "Sessões Rápidas",
                 desc: "Jogar entre aulas ou longas maratonas quando quiser",
                 color: "from-yellow-500 to-orange-500",
