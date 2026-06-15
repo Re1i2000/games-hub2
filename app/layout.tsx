@@ -15,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
         <style>{`
           body {
             background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
@@ -22,9 +23,18 @@ export default function RootLayout({
             margin: 0;
             padding: 0;
             min-height: 100vh;
+            font-family: 'Space Mono', monospace;
           }
           html {
             background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
+          }
+          h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+          }
+          .hero-title, .main-title {
+            font-family: 'Press Start 2P', cursive;
+            letter-spacing: 2px;
           }
         `}</style>
       </head>

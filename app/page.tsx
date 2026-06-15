@@ -22,11 +22,11 @@ export default function Home() {
           </div>
 
           {/* Main Title */}
-          <h1 className="text-7xl md:text-8xl font-black mb-6 leading-tight">
-            <span className="block mb-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
-              Games Hub
+          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight hero-title">
+            <span className="block mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse" style={{fontFamily: "'Press Start 2P', cursive", fontSize: '2.5rem'}}>
+              GAMES HUB
             </span>
-            <span className="text-5xl md:text-6xl text-white font-bold">
+            <span className="text-3xl md:text-5xl text-white font-bold" style={{fontFamily: "'Orbitron', sans-serif"}}>
               O Universo dos Jogos
             </span>
           </h1>
