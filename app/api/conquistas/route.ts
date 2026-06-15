@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
     );
 
     // Montar resposta com flags de desbloqueio
-    const conquistas = allConquistas.map((c) => {
+    const conquistas = allConquistas.map((c: any) => {
       const usuarioConquista = usuarioConquistas.find(
         (uc) => uc.conquista_id === c.id
       );
