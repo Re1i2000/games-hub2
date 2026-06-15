@@ -14,7 +14,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen text-white" suppressHydrationWarning>
+      <head>
+        <style>{`
+          body {
+            background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
+            color: white;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+          }
+          html {
+            background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
+          }
+        `}</style>
+      </head>
+      <body suppressHydrationWarning>
         <TopNav />
         {children}
       </body>
