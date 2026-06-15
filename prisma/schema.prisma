@@ -47,8 +47,8 @@ model Jogo {
   id            String    @id @default(cuid())
   titulo        String
   descricao     String?
-  categoria     Categoria
-  dificuldade   Dificuldade
+  categoria     String
+  dificuldade   String
 
   cover_url     String
   screenshots   String   @default("[]")
@@ -139,7 +139,7 @@ model Amizade {
   amigo_id      String
   amigo         Usuario   @relation("usuario_amigos_de", fields: [amigo_id], references: [id], onDelete: Cascade)
 
-  status        StatusAmizade @default(PENDENTE)
+  status        String    @default("PENDENTE")
 
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -148,25 +148,3 @@ model Amizade {
   @@index([status])
 }
 
-enum Categoria {
-  ACAO
-  TERROR
-  RPG
-  PUZZLE
-  ESTRATEGIA
-  INTERACAO
-  ESPORTES
-}
-
-enum Dificuldade {
-  FACIL
-  MEDIA
-  DIFICIL
-  EXTREMA
-}
-
-enum StatusAmizade {
-  PENDENTE
-  ACEITO
-  BLOQUEADO
-}
