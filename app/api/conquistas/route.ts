@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
     });
 
     const usuarioConquistaIds = new Set<string>(
-      usuarioConquistas.map((uc) => uc.conquista_id)
+      usuarioConquistas.map((uc: { conquista_id: string }) => uc.conquista_id)
     );
 
     // Montar resposta com flags de desbloqueio
