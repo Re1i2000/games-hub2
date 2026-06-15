@@ -121,13 +121,16 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
-              { name: "Flappy Bird Clone", emoji: "🐦", category: "Ação" },
-              { name: "Space Shooter", emoji: "🚀", category: "Ação" },
-              { name: "Maze Runner", emoji: "🎯", category: "Puzzle" },
+              { name: "Flappy Bird Clone", emoji: "🐦", category: "Ação", rating: 5 },
+              { name: "Space Shooter", emoji: "🚀", category: "Ação", rating: 5 },
+              { name: "Maze Runner", emoji: "🎯", category: "Puzzle", rating: 4 },
+              { name: "Dragon Quest", emoji: "🐉", category: "RPG", rating: 5 },
+              { name: "Night Terror", emoji: "👻", category: "Terror", rating: 4 },
+              { name: "Tower Defense", emoji: "🏰", category: "Estratégia", rating: 5 },
             ].map((game, idx) => (
               <div
                 key={idx}
-                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-purple-900 border border-purple-400/30 hover:border-purple-400/80 transition-all"
+                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-purple-900 border border-purple-400/30 hover:border-purple-400/80 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 transition-all"
               >
                 <div className="aspect-video bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center text-8xl group-hover:scale-110 transition-transform">
                   {game.emoji}
@@ -141,7 +144,14 @@ export default function Home() {
                     </span>
                     <div className="flex gap-1">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <Star
+                          key={i}
+                          className={`w-4 h-4 ${
+                            i < game.rating
+                              ? "fill-yellow-400 text-yellow-400"
+                              : "text-gray-600"
+                          }`}
+                        />
                       ))}
                     </div>
                   </div>
@@ -220,6 +230,83 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="border-t border-purple-500/30 bg-slate-900/50">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div className="md:col-span-1">
+              <Link href="/" className="flex items-center gap-2 mb-4">
+                <span className="text-3xl">🎮</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Games Hub
+                </span>
+              </Link>
+              <p className="text-gray-400 leading-relaxed">
+                Sua plataforma de jogos online. Jogue, compita e divirta-se com amigos do mundo todo.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-white font-bold mb-4">Navegação</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/jogos" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Jogos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/ranking" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Ranking
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-white font-bold mb-4">Conta</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/login" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/signup" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Criar Conta
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/perfil" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    Perfil
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-white font-bold mb-4">Categorias</h3>
+              <ul className="space-y-3">
+                <li className="text-gray-400">Ação</li>
+                <li className="text-gray-400">RPG</li>
+                <li className="text-gray-400">Puzzle</li>
+                <li className="text-gray-400">Estratégia</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-purple-500/30 pt-8 text-center">
+            <p className="text-gray-400">
+              © {new Date().getFullYear()} Games Hub. Todos os direitos reservados.
+            </p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
