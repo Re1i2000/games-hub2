@@ -125,31 +125,32 @@ export default function Home() {
       </section>
 
       {/* GÊNEROS SECTION */}
-      <section className="relative z-20 px-4 sm:px-6 py-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-8">
-            <h2 style={{fontFamily: "'Press Start 2P', cursive", color: '#00ffff', fontSize: 'clamp(1.2rem, 5vw, 2rem)', textShadow: '2px 2px 0px #ff00ff'}}>
+      <section style={{position: 'relative', zIndex: 20, padding: '48px 16px', backgroundImage: 'linear-gradient(to bottom, rgba(139, 92, 246, 0.1), transparent)'}}>
+        <div style={{maxWidth: '80rem', margin: '0 auto'}}>
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px'}}>
+            <h2 style={{fontFamily: "'Press Start 2P', cursive", color: '#00ffff', fontSize: 'clamp(1.2rem, 5vw, 2rem)', textShadow: '2px 2px 0px #ff00ff', margin: 0}}>
               ◄ GÊNEROS ►
             </h2>
-            <p style={{fontFamily: "'Space Mono', monospace", color: '#ff00ff', fontSize: '12px', fontWeight: 'bold'}}>
+            <p style={{fontFamily: "'Space Mono', monospace", color: '#ff00ff', fontSize: '12px', fontWeight: 'bold', margin: 0}}>
               VER TUDO →
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '12px'}}>
             {categories.map((cat, i) => (
               <div key={i} style={{
                 border: `3px solid ${cat.color}`,
                 backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                padding: '12px',
+                padding: '16px 12px',
                 textAlign: 'center',
                 cursor: 'pointer',
-                transition: 'all 0.2s'
+                transition: 'all 0.2s',
+                boxShadow: `0 0 15px ${cat.color}40`
               }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              onMouseEnter={(e) => {e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.boxShadow = `0 0 25px ${cat.color}80`}}
+              onMouseLeave={(e) => {e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = `0 0 15px ${cat.color}40`}}
               >
-                <p style={{fontSize: '2rem', margin: '0 0 8px 0'}}>{cat.emoji}</p>
+                <p style={{fontSize: '2.5rem', margin: '0 0 8px 0'}}>{cat.emoji}</p>
                 <p style={{fontFamily: "'Space Mono', monospace", color: cat.color, fontWeight: 'bold', margin: '0', fontSize: '12px'}}>
                   {(cat.count / 1000).toFixed(1)}k
                 </p>
