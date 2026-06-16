@@ -1,89 +1,139 @@
+'use client';
+
 import Link from "next/link";
 
 export default function Home() {
-  const games = [
-    { id: 1, name: 'Flappy Bird', emoji: '🐦', category: 'Ação', difficulty: 'Easy', rating: 5 },
-    { id: 2, name: 'Space Shooter', emoji: '🚀', category: 'Ação', difficulty: 'Medium', rating: 5 },
-    { id: 3, name: 'Maze Runner', emoji: '🎯', category: 'Puzzle', difficulty: 'Hard', rating: 4 },
-    { id: 4, name: 'Puzzle Quest', emoji: '🧩', category: 'Puzzle', difficulty: 'Medium', rating: 4 },
-    { id: 5, name: 'Dino Jump', emoji: '🦕', category: 'Ação', difficulty: 'Easy', rating: 5 },
-    { id: 6, name: 'Memory Game', emoji: '🧠', category: 'Puzzle', difficulty: 'Easy', rating: 5 },
-    { id: 7, name: 'Brick Break', emoji: '🧱', category: 'Ação', difficulty: 'Medium', rating: 4 },
-    { id: 8, name: 'Snake Master', emoji: '🐍', category: 'Estratégia', difficulty: 'Hard', rating: 4 },
+  const categories = [
+    { name: 'Ação', emoji: '⚔️', count: 12400, color: '#ff0096' },
+    { name: 'Puzzle', emoji: '🧩', count: 8200, color: '#00ffff' },
+    { name: 'Estratégia', emoji: '🎯', count: 5100, color: '#ffff00' },
+    { name: 'RPG', emoji: '🗡️', count: 6700, color: '#00ff00' },
+    { name: 'Corrida', emoji: '🏎️', count: 9300, color: '#ff00ff' },
+    { name: 'Esportes', emoji: '🏀', count: 7800, color: '#ff8800' },
+  ];
+
+  const trendingGames = [
+    { name: 'Flappy Bird', file: 'Flappy Bird.exe', badge: 'HOT', badgeColor: '#ff0000', gradient: 'from-cyan-500 to-purple-500', category: 'AçãoFÁCIL' },
+    { name: 'Space Shooter', file: 'Space Shooter.exe', badge: 'TOP', badgeColor: '#ffff00', gradient: 'from-purple-500 to-pink-500', category: 'AçãoMÉDIO' },
+    { name: 'Maze Runner', file: 'Maze Runner.exe', badge: 'NEW', badgeColor: '#ffff00', gradient: 'from-yellow-500 to-black', category: 'PuzzleDIFÍCIL' },
+    { name: 'Puzzle Quest', file: 'Puzzle Quest.exe', badge: 'GEM', badgeColor: '#00ffff', gradient: 'from-green-500 to-black', category: 'PuzzleMÉDIO' },
+    { name: 'Dino Jump', file: 'Dino Jump.exe', badge: 'FAST', badgeColor: '#ff8800', gradient: 'from-orange-500 to-black', category: 'AçãoFÁCIL' },
+    { name: 'Memory Game', file: 'Memory Game.exe', badge: 'PICK', badgeColor: '#00ffff', gradient: 'from-blue-500 to-black', category: 'PuzzleFÁCIL' },
   ];
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-gradient-to-b from-purple-900 via-purple-950 to-slate-950">
+      {/* CHECKERED HEADER */}
+      <div className="w-full h-8 flex" style={{background: 'repeating-linear-gradient(45deg, #00ffff 0px, #00ffff 8px, #ff00ff 8px, #ff00ff 16px)'}}>
+      </div>
+
       {/* HERO SECTION */}
-      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6">
-        <div className="max-w-4xl w-full text-center">
-          {/* Main Title */}
-          <h1
-            className="mb-4"
+      <section className="px-4 sm:px-6 py-12 sm:py-20 text-center">
+        {/* Main Title - Pixel Art Style */}
+        <h1
+          className="mb-4 leading-none"
+          style={{
+            fontSize: 'clamp(2.5rem, 10vw, 4.5rem)',
+            fontFamily: "'Press Start 2P', cursive",
+            color: '#ffffff',
+            textShadow: '3px 3px 0px #ff00ff, 6px 6px 0px #00ffff, 9px 9px 0px #ff0000',
+            letterSpacing: '4px',
+            filter: 'drop-shadow(0 0 20px rgba(0, 255, 255, 0.8))'
+          }}
+        >
+          GAMES HUB
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-base sm:text-lg mb-6" style={{fontFamily: "'Space Mono', monospace", color: '#ff0000', letterSpacing: '2px', fontWeight: 'bold'}}>
+          ⭐ O UNIVERSO DOS JOGOS ⭐
+        </p>
+
+        {/* Description */}
+        <p className="text-xs sm:text-sm mb-8 max-w-2xl mx-auto" style={{fontFamily: "'Space Mono', monospace", color: '#cccccc'}}>
+          Explore centenas de jogos incríveis, compita globalmente e domine os rankings. 100% radical, 100% anos 90. 😎
+        </p>
+
+        {/* CTA Buttons - Windows 95 Style */}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+          <Link
+            href="/jogos"
+            className="px-6 sm:px-10 py-3 text-sm sm:text-base font-bold transition-all hover:scale-105"
             style={{
-              fontSize: 'clamp(2rem, 12vw, 4.5rem)',
-              fontFamily: "'Press Start 2P', cursive",
-              color: '#06b6d4',
-              letterSpacing: '3px',
-              textShadow: '0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(255, 0, 150, 0.6)',
-              animation: 'neon-flicker 0.15s infinite',
-              lineHeight: '1.1'
+              backgroundColor: '#00ffff',
+              color: '#000000',
+              border: '3px solid #00ffff',
+              fontFamily: "'Space Mono', monospace",
+              textShadow: '1px 1px 0px rgba(0,0,0,0.3)',
+              boxShadow: 'inset 1px 1px 0px rgba(255,255,255,0.8), inset -1px -1px 0px rgba(0,0,0,0.3)'
             }}
           >
-            GAMES HUB
-          </h1>
+            ▶ EXPLORAR JOGOS
+          </Link>
+          <Link
+            href="/ranking"
+            className="px-6 sm:px-10 py-3 text-sm sm:text-base font-bold transition-all hover:scale-105"
+            style={{
+              backgroundColor: '#ff00ff',
+              color: '#ffffff',
+              border: '3px solid #ff00ff',
+              fontFamily: "'Space Mono', monospace",
+              textShadow: '1px 1px 0px rgba(0,0,0,0.3)',
+              boxShadow: 'inset 1px 1px 0px rgba(255,255,255,0.8), inset -1px -1px 0px rgba(0,0,0,0.3)'
+            }}
+          >
+            👑 RANKING GLOBAL
+          </Link>
+        </div>
 
-          {/* Subtitle */}
-          <p className="text-base sm:text-lg mb-8" style={{fontFamily: "'Orbitron', sans-serif", color: '#ffffff', letterSpacing: '1px'}}>
-            O Universo dos Jogos
-          </p>
+        {/* Stats - Windows .exe style */}
+        <div className="flex flex-wrap gap-3 justify-center mb-4">
+          {[
+            { file: 'stats.exe', value: '1000+', label: 'PLAYERS', color: '#00ffff' },
+            { file: 'stats.exe', value: '50+', label: 'GAMES', color: '#00ffff' },
+            { file: 'stats.exe', value: '24/7', label: 'ONLINE', color: '#00ffff' },
+          ].map((stat, i) => (
+            <div key={i} className="border-4" style={{borderColor: stat.color, backgroundColor: '#cccccc', padding: '6px 12px', minWidth: '120px'}}>
+              <p className="text-xs" style={{fontFamily: "'Space Mono', monospace", color: '#000000', fontWeight: 'bold'}}>
+                {stat.file}
+              </p>
+              <p className="text-lg font-black" style={{fontFamily: "'Orbitron', sans-serif", color: stat.color, textShadow: `0 0 10px ${stat.color}`}}>
+                {stat.value}
+              </p>
+              <p className="text-xs" style={{fontFamily: "'Space Mono', monospace", color: '#000000', fontWeight: 'bold'}}>
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-          {/* Description */}
-          <p className="text-sm mb-10 max-w-xl mx-auto" style={{fontFamily: "'Space Mono', monospace", color: '#b0e0e6', lineHeight: '1.6'}}>
-            Explore centenas de jogos incríveis, compita globalmente e domine os rankings.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-12">
-            <Link
-              href="/jogos"
-              className="px-6 sm:px-8 py-2 text-sm font-bold border transition-all hover:scale-105"
-              style={{
-                borderColor: '#06b6d4',
-                color: '#06b6d4',
-                fontFamily: "'Space Mono', monospace",
-                border: '1px solid rgba(6, 182, 212, 0.6)'
-              }}
-            >
-              Explorar Jogos
-            </Link>
-            <Link
-              href="/ranking"
-              className="px-6 sm:px-8 py-2 text-sm font-bold border transition-all hover:scale-105"
-              style={{
-                borderColor: '#ff0096',
-                color: '#ff0096',
-                fontFamily: "'Space Mono', monospace",
-                border: '1px solid rgba(255, 0, 150, 0.6)'
-              }}
-            >
-              Ranking Global
-            </Link>
+      {/* GÊNEROS SECTION */}
+      <section className="px-4 sm:px-6 py-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl sm:text-3xl font-black" style={{fontFamily: "'Press Start 2P', cursive", color: '#00ffff', textShadow: '2px 2px 0px #ff00ff'}}>
+              ◄ GÊNEROS ►
+            </h2>
+            <p style={{fontFamily: "'Space Mono', monospace", color: '#ff00ff', fontSize: '12px', fontWeight: 'bold'}}>
+              VER TUDO →
+            </p>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 max-w-sm mx-auto">
-            {[
-              { value: '1000+', label: 'PLAYERS' },
-              { value: '50+', label: 'GAMES' },
-              { value: '24/7', label: 'ONLINE' },
-            ].map((stat) => (
-              <div key={stat.label} style={{borderBottom: '1px solid rgba(6, 182, 212, 0.2)', paddingBottom: '8px'}}>
-                <p className="font-black text-lg" style={{color: '#06b6d4', fontFamily: "'Orbitron', sans-serif"}}>
-                  {stat.value}
+          {/* Categories Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+            {categories.map((cat) => (
+              <div
+                key={cat.name}
+                className="p-3 border-4 transition-all hover:scale-105 cursor-pointer"
+                style={{borderColor: cat.color, backgroundColor: 'rgba(0, 0, 0, 0.5)'}}
+              >
+                <p className="text-2xl mb-1">{cat.emoji}</p>
+                <p className="text-sm font-bold" style={{fontFamily: "'Space Mono', monospace", color: cat.color}}>
+                  {cat.count.toLocaleString()}
                 </p>
-                <p className="text-xs mt-1" style={{color: '#b0e0e6', fontFamily: "'Space Mono', monospace"}}>
-                  {stat.label}
+                <p className="text-xs" style={{fontFamily: "'Space Mono', monospace", color: '#ffffff', fontSize: '10px'}}>
+                  {cat.name}
                 </p>
               </div>
             ))}
@@ -91,94 +141,88 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EXPLORE SECTION */}
-      <section className="px-4 sm:px-6 py-16 sm:py-20">
+      {/* EM ALTA SECTION */}
+      <section className="px-4 sm:px-6 py-12">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="mb-10">
-            <h2 className="text-2xl sm:text-3xl font-black mb-1" style={{fontFamily: "'Orbitron', sans-serif", color: '#06b6d4'}}>
-              Explore
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-black" style={{fontFamily: "'Press Start 2P', cursive", color: '#ffff00', textShadow: '2px 2px 0px #000000'}}>
+              ▲ EM ALTA ▼
             </h2>
+            <p style={{fontFamily: "'Space Mono', monospace", color: '#ffff00', fontSize: '12px', fontWeight: 'bold'}}>
+              Mais jogados desta semana
+            </p>
           </div>
 
-          {/* Search & Filters */}
-          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center mb-8">
-            <div className="flex-1 w-full">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="w-full px-3 sm:px-4 py-2 text-sm bg-slate-900 text-gray-300"
-                style={{
-                  border: '1px solid rgba(6, 182, 212, 0.2)',
-                  fontFamily: "'Space Mono', monospace",
-                  outline: 'none'
-                }}
-              />
-            </div>
-
-            {/* Filter Tabs */}
-            <div className="flex gap-2 flex-wrap">
-              {['All', 'Easy', 'Medium', 'Hard'].map((filter) => (
-                <button
-                  key={filter}
-                  className="px-3 py-2 text-xs font-bold transition-all"
+          {/* Games Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+            {trendingGames.map((game, i) => (
+              <Link
+                key={i}
+                href={`/jogos/${i}`}
+                className="group transition-all hover:scale-105 overflow-hidden"
+                style={{border: '3px solid #cccccc'}}
+              >
+                {/* Window Title Bar */}
+                <div
+                  className="px-2 py-1 flex items-center justify-between"
                   style={{
-                    borderBottom: filter === 'All' ? '2px solid #06b6d4' : '1px solid rgba(6, 182, 212, 0.2)',
-                    color: filter === 'All' ? '#06b6d4' : '#b0e0e6',
-                    backgroundColor: 'transparent',
-                    fontFamily: "'Space Mono', monospace"
+                    backgroundColor: '#000080',
+                    color: '#ffffff',
+                    fontSize: '10px',
+                    fontFamily: "'Space Mono', monospace",
+                    fontWeight: 'bold'
                   }}
                 >
-                  {filter}
-                </button>
-              ))}
-            </div>
-          </div>
+                  <span>{game.file}</span>
+                  <span>_⬜❌</span>
+                </div>
 
-          {/* Games Grid - Horizontal */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {games.map((game) => (
-              <Link
-                key={game.id}
-                href={`/jogos/${game.id}`}
-                className="group overflow-hidden transition-all hover:scale-105"
-                style={{
-                  backgroundColor: 'rgba(6, 182, 212, 0.05)',
-                  border: '1px solid rgba(6, 182, 212, 0.15)'
-                }}
-              >
                 {/* Game Image */}
                 <div
-                  className="aspect-video flex items-center justify-center text-4xl sm:text-5xl transition-all group-hover:scale-110"
-                  style={{
-                    backgroundColor: 'rgba(6, 182, 212, 0.08)'
-                  }}
+                  className="aspect-video flex items-center justify-center text-4xl relative overflow-hidden group-hover:scale-110 transition-transform"
+                  style={{background: `linear-gradient(135deg, var(--color1), var(--color2))`, '--color1': game.gradient.split(' to-')[0].replace('from-', ''), '--color2': game.gradient.split(' to-')[1]}}
                 >
-                  {game.emoji}
+                  {/* Badge */}
+                  <div
+                    className="absolute top-2 left-2 px-2 py-1 text-xs font-black"
+                    style={{
+                      backgroundColor: game.badgeColor,
+                      color: '#000000',
+                      border: '2px solid #000000',
+                      fontFamily: "'Space Mono', monospace"
+                    }}
+                  >
+                    {game.badge}
+                  </div>
+
+                  {/* Placeholder Icon */}
+                  <span style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>▌</span>
                 </div>
 
                 {/* Game Info */}
-                <div className="p-3 sm:p-4">
-                  <h3 className="font-bold text-xs sm:text-sm mb-2 line-clamp-2" style={{fontFamily: "'Orbitron', sans-serif", color: '#06b6d4'}}>
+                <div style={{backgroundColor: '#cccccc', padding: '8px'}}>
+                  <h3 className="font-bold text-xs mb-1" style={{fontFamily: "'Space Mono', monospace", color: '#000000'}}>
                     {game.name}
                   </h3>
-
-                  {/* Badges */}
-                  <div className="flex gap-2 mb-2">
-                    <span className="text-xs px-1.5 py-0.5" style={{backgroundColor: 'rgba(0, 255, 255, 0.1)', color: '#06b6d4', border: '1px solid rgba(0, 255, 255, 0.2)', fontFamily: "'Space Mono', monospace"}}>
-                      {game.category}
+                  <div className="flex gap-1 mb-2 flex-wrap">
+                    <span className="text-xs px-1" style={{backgroundColor: '#ff00ff', color: '#ffffff', fontFamily: "'Space Mono', monospace", fontWeight: 'bold', border: '1px solid #000000'}}>
+                      {game.category.slice(0, 6)}
                     </span>
-                    <span className="text-xs px-1.5 py-0.5" style={{backgroundColor: 'rgba(255, 0, 150, 0.1)', color: '#ff0096', border: '1px solid rgba(255, 0, 150, 0.2)', fontFamily: "'Space Mono', monospace"}}>
-                      {game.difficulty}
+                    <span className="text-xs px-1" style={{backgroundColor: '#ffff00', color: '#000000', fontFamily: "'Space Mono', monospace", fontWeight: 'bold', border: '1px solid #000000'}}>
+                      {game.category.slice(6)}
                     </span>
                   </div>
-
-                  {/* Rating */}
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} style={{color: i < game.rating ? '#ffd700' : 'rgba(255, 215, 0, 0.15)', fontSize: '12px'}}>★</span>
-                    ))}
-                  </div>
+                  <button
+                    className="w-full text-xs font-bold py-1 border-t border-b-2"
+                    style={{
+                      backgroundColor: '#cccccc',
+                      borderColor: '#000000',
+                      fontFamily: "'Space Mono', monospace",
+                      color: '#000000'
+                    }}
+                  >
+                    ▶ JOGAR AGORA
+                  </button>
                 </div>
               </Link>
             ))}
