@@ -23,10 +23,26 @@ export default function Home() {
 
           {/* Main Title */}
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            <span className="block mb-4 text-cyan-400 neon-title" style={{fontSize: '2.5rem', color: '#06b6d4'}}>
+            <span
+              className="block mb-4 text-cyan-400"
+              style={{
+                fontSize: '2.5rem',
+                color: '#06b6d4',
+                fontFamily: "'Press Start 2P', cursive",
+                letterSpacing: '2px',
+                textShadow: '0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 0, 150, 0.8), 0 0 40px rgba(255, 0, 150, 0.6), 2px 2px 0 rgba(255, 0, 150, 0.5), -2px -2px 0 rgba(0, 255, 255, 0.5)',
+                animation: 'neon-flicker 0.15s infinite'
+              }}
+            >
               GAMES HUB
             </span>
-            <span className="text-3xl md:text-5xl text-white neon-glow font-bold" style={{fontFamily: "'Orbitron', sans-serif"}}>
+            <span
+              className="text-3xl md:text-5xl text-white font-bold"
+              style={{
+                fontFamily: "'Orbitron', sans-serif",
+                textShadow: '0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 0, 150, 0.8)'
+              }}
+            >
               O Universo dos Jogos
             </span>
           </h1>
