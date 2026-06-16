@@ -4,32 +4,36 @@ import { Gamepad2, Zap, Trophy, Sparkles, ArrowRight, Star, Flame, Crown } from 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden">
-      {/* Hero Section - PREMIUM */}
+      {/* Hero Section - 90s Vaporwave */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Animated Background Elements */}
+        {/* Animated Grid Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 right-0 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse delay-500" />
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(0, 255, 255, .1) 25%, rgba(0, 255, 255, .1) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, .1) 75%, rgba(0, 255, 255, .1) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 0, 150, .1) 25%, rgba(255, 0, 150, .1) 26%, transparent 27%, transparent 74%, rgba(255, 0, 150, .1) 75%, rgba(255, 0, 150, .1) 76%, transparent 77%, transparent)',
+            backgroundSize: '50px 50px'
+          }} />
+          <div className="absolute top-20 left-10 w-40 h-40 border-2 border-cyan-500/30 rotate-45 animate-pulse" />
+          <div className="absolute bottom-32 right-20 w-56 h-56 border-2 border-purple-500/30 rounded-full animate-pulse delay-1000" />
+          <div className="absolute top-1/3 right-10 w-32 h-32 border-2 border-pink-500/20 animate-pulse delay-500" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
+        <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
           {/* Badge */}
-          <div className="mb-8 inline-block">
-            <span className="group px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-purple-400/50 text-cyan-300 text-sm font-semibold hover:border-cyan-400 transition-all cursor-pointer">
-              ⚡ Plataforma de Jogos Next-Gen
+          <div className="mb-12 inline-block">
+            <span className="px-6 py-3 rounded-none border-2 border-cyan-400 text-cyan-300 text-sm font-mono tracking-wider" style={{fontFamily: "'Space Mono', monospace"}}>
+              ⚡ RETRO GAMING PLATFORM ⚡
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+          <h1 className="mb-8">
             <span
-              className="block mb-4 text-cyan-400"
+              className="block mb-2"
               style={{
-                fontSize: '2.5rem',
-                color: '#06b6d4',
+                fontSize: '4rem',
                 fontFamily: "'Press Start 2P', cursive",
-                letterSpacing: '2px',
+                color: '#06b6d4',
+                letterSpacing: '4px',
                 textShadow: '0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.6), 0 0 50px rgba(255, 0, 150, 1), 0 0 60px rgba(255, 0, 150, 0.8), 0 0 70px rgba(255, 0, 150, 0.6), 2px 2px 5px rgba(255, 0, 150, 0.8), -2px -2px 5px rgba(0, 255, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.4)',
                 animation: 'neon-flicker 0.15s infinite'
               }}
@@ -37,166 +41,189 @@ export default function Home() {
               GAMES HUB
             </span>
             <span
-              className="text-3xl md:text-5xl text-white font-bold"
+              className="block text-2xl"
               style={{
                 fontFamily: "'Orbitron', sans-serif",
-                textShadow: '0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 0, 150, 0.8)'
+                color: '#ffffff',
+                letterSpacing: '2px',
+                textShadow: '0 0 10px rgba(255, 0, 150, 1), 0 0 20px rgba(255, 0, 150, 0.8)'
               }}
             >
-              O Universo dos Jogos
+              O UNIVERSO DOS JOGOS
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-            Explore centenas de jogos incríveis, compita globalmente e domine os rankings. Sua próxima aventura começa aqui.
+          <p className="text-lg mb-16 max-w-3xl mx-auto leading-relaxed" style={{fontFamily: "'Space Mono', monospace", color: '#b0e0e6'}}>
+            &gt; Explore centenas de jogos incríveis<br/>
+            &gt; Compita globalmente e domine os rankings<br/>
+            &gt; Sua próxima aventura começa aqui &lt;
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          {/* CTA Buttons - Vaporwave Style */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
             <Link
               href="/jogos"
-              className="group relative px-10 py-5 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-2xl font-bold text-lg shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-500/70 transition-all overflow-hidden"
+              className="group relative px-12 py-4 font-mono text-lg font-bold transition-all overflow-hidden"
+              style={{
+                border: '2px solid #06b6d4',
+                color: '#06b6d4',
+                textShadow: '0 0 10px rgba(0, 255, 255, 0.8)',
+                fontFamily: "'Space Mono', monospace"
+              }}
             >
               <span className="relative z-10 flex items-center justify-center gap-3">
-                🚀 Começar a Jogar
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                ▶ JOGAR AGORA
               </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-transparent opacity-0 group-hover:opacity-20 transition-all" />
             </Link>
             <Link
               href="/ranking"
-              className="group px-10 py-5 border-2 border-purple-400 text-purple-300 rounded-2xl hover:bg-purple-400/10 transition-all font-bold text-lg flex items-center justify-center gap-3"
+              className="group relative px-12 py-4 font-mono text-lg font-bold transition-all overflow-hidden"
+              style={{
+                border: '2px solid #ff0096',
+                color: '#ff0096',
+                textShadow: '0 0 10px rgba(255, 0, 150, 0.8)',
+                fontFamily: "'Space Mono', monospace"
+              }}
             >
-              👑 Ver Ranking
+              <span className="relative z-10 flex items-center justify-center gap-3">
+                ◆ RANKING
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-transparent opacity-0 group-hover:opacity-20 transition-all" />
             </Link>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto text-sm">
+          {/* Stats Grid - Minimalist */}
+          <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
             {[
-              { value: "1000+", label: "Jogadores Ativos", icon: "👥" },
-              { value: "50+", label: "Jogos Incríveis", icon: "🎮" },
-              { value: "24/7", label: "Sempre Online", icon: "⚡" },
+              { value: "1000+", label: "PLAYERS", icon: "◆" },
+              { value: "50+", label: "GAMES", icon: "▲" },
+              { value: "24/7", label: "ONLINE", icon: "●" },
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="group bg-gradient-to-br from-purple-500/20 to-cyan-500/10 rounded-xl p-6 border border-purple-400/30 hover:border-cyan-400/50 hover:from-purple-500/30 transition-all cursor-pointer"
+                className="group p-6 transition-all cursor-pointer"
+                style={{
+                  border: '2px solid rgba(0, 255, 255, 0.3)',
+                  backgroundColor: 'rgba(0, 255, 255, 0.05)'
+                }}
               >
-                <p className="text-3xl font-black text-transparent bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text mb-2">
+                <p className="text-2xl font-bold mb-2" style={{color: '#06b6d4', fontFamily: "'Space Mono', monospace"}}>
+                  {stat.icon}
+                </p>
+                <p className="text-2xl font-black" style={{color: '#ff0096', fontFamily: "'Orbitron', sans-serif"}}>
                   {stat.value}
                 </p>
-                <p className="text-gray-400 text-sm font-medium">{stat.label}</p>
+                <p className="text-xs mt-2 tracking-widest" style={{color: '#b0e0e6', fontFamily: "'Space Mono', monospace"}}>
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features Section - MODERN CARDS */}
-      <section className="py-32 border-t border-purple-500/30 bg-gradient-to-b from-slate-900/50 to-transparent">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-5xl font-black text-center mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Por Que Games Hub?
+      {/* Features Section - 90s Grid Style */}
+      <section className="py-32 border-t-2 border-cyan-500/30">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-black text-center mb-4 tracking-wider" style={{fontFamily: "'Orbitron', sans-serif", color: '#06b6d4', textShadow: '0 0 20px rgba(0, 255, 255, 0.6)'}}>
+            POR QUE GAMES HUB?
           </h2>
-          <p className="text-center text-gray-400 mb-16 text-lg">
-            A plataforma mais completa para você se divertir
+          <p className="text-center mb-16 text-sm tracking-widest" style={{fontFamily: "'Space Mono', monospace", color: '#ff0096'}}>
+            &gt;&gt; A PLATAFORMA MAIS COMPLETA PARA VOCÊ SE DIVERTIR &lt;&lt;
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                icon: Gamepad2,
-                title: "Diversos Gêneros",
-                desc: "Ação, Terror, RPG, Puzzle, Estratégia e muito mais",
-                color: "from-cyan-500 to-blue-500",
-                gradient: "from-cyan-500/20 to-blue-500/10",
+                title: "DIVERSOS GÊNEROS",
+                desc: "Ação, Terror, RPG,\nPuzzle, Estratégia",
+                icon: "▶",
+                color: "#06b6d4"
               },
               {
-                icon: Zap,
-                title: "Sessões Rápidas",
-                desc: "Jogar entre aulas ou longas maratonas quando quiser",
-                color: "from-yellow-500 to-orange-500",
-                gradient: "from-yellow-500/20 to-orange-500/10",
+                title: "SESSÕES RÁPIDAS",
+                desc: "Jogar entre aulas ou\nlongas maratonas",
+                icon: "⚡",
+                color: "#ff0096"
               },
               {
-                icon: Crown,
-                title: "Ranking Global",
-                desc: "Compete com jogadores do mundo inteiro",
-                color: "from-pink-500 to-red-500",
-                gradient: "from-pink-500/20 to-red-500/10",
+                title: "RANKING GLOBAL",
+                desc: "Compete com jogadores\ndo mundo inteiro",
+                icon: "◆",
+                color: "#00ffff"
               },
-            ].map((feature, idx) => {
-              const Icon = feature.icon;
-              return (
-                <div
-                  key={idx}
-                  className={`group relative bg-gradient-to-br ${feature.gradient} border border-purple-400/30 rounded-3xl p-10 hover:border-purple-400/80 transition-all hover:shadow-2xl hover:shadow-purple-500/30 overflow-hidden`}
-                >
-                  <div className={`absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-r ${feature.color} rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-all`} />
-
-                  <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-8 group-hover:scale-125 transition-transform`}>
-                    <Icon className="w-10 h-10 text-white" />
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
-                  <p className="text-gray-400 leading-relaxed mb-4">{feature.desc}</p>
-
-                  <div className="flex items-center text-cyan-400 font-semibold group-hover:gap-2 transition-all">
-                    Saiba Mais <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              );
-            })}
+            ].map((feature, idx) => (
+              <div
+                key={idx}
+                className="group p-8 transition-all hover:scale-105 cursor-pointer"
+                style={{
+                  border: `2px solid ${feature.color}`,
+                  backgroundColor: `${feature.color}15`,
+                  textShadow: `0 0 10px ${feature.color}80`
+                }}
+              >
+                <p className="text-4xl mb-4">{feature.icon}</p>
+                <h3 className="text-xl font-black mb-3 tracking-wider" style={{fontFamily: "'Orbitron', sans-serif", color: feature.color}}>
+                  {feature.title}
+                </h3>
+                <p className="text-sm whitespace-pre-wrap" style={{fontFamily: "'Space Mono', monospace", color: '#b0e0e6'}}>
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Games Preview - SHOWCASE */}
-      <section className="py-32 border-t border-purple-500/30">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-5xl font-black text-center mb-4 text-white">
-            Jogos em Destaque
+      {/* Games Preview - Pixel Art Grid */}
+      <section className="py-32 border-t-2 border-purple-500/30">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-black text-center mb-2 tracking-wider" style={{fontFamily: "'Orbitron', sans-serif", color: '#ff0096', textShadow: '0 0 20px rgba(255, 0, 150, 0.6)'}}>
+            JOGOS EM DESTAQUE
           </h2>
-          <p className="text-center text-gray-400 mb-16 text-lg">
-            Escolha entre centenas de títulos incríveis
+          <p className="text-center mb-16 text-sm tracking-widest" style={{fontFamily: "'Space Mono', monospace", color: '#06b6d4'}}>
+            &gt;&gt; ESCOLHA ENTRE CENTENAS DE TÍTULOS INCRÍVEIS &lt;&lt;
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {[
-              { name: "Flappy Bird Clone", emoji: "🐦", category: "Ação", rating: 5 },
-              { name: "Space Shooter", emoji: "🚀", category: "Ação", rating: 5 },
-              { name: "Maze Runner", emoji: "🎯", category: "Puzzle", rating: 5 },
+              { name: "FLAPPY BIRD", emoji: "🐦", category: "AÇÃO" },
+              { name: "SPACE SHOOTER", emoji: "🚀", category: "AÇÃO" },
+              { name: "MAZE RUNNER", emoji: "🎯", category: "PUZZLE" },
             ].map((game, idx) => (
               <Link
                 key={idx}
                 href="/jogos"
-                className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-800 to-purple-900 border border-purple-400/30 hover:border-cyan-400/80 transition-all hover:shadow-2xl hover:shadow-cyan-500/30 cursor-pointer"
+                className="group relative overflow-hidden transition-all hover:scale-105"
+                style={{
+                  border: '2px solid rgba(0, 255, 255, 0.5)',
+                  backgroundColor: 'rgba(88, 28, 135, 0.3)'
+                }}
               >
-                {/* Game Background */}
-                <div className="aspect-video bg-gradient-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center text-7xl group-hover:scale-110 transition-transform duration-500 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
-                  <span className="relative z-10">{game.emoji}</span>
+                {/* Game Emoji */}
+                <div className="aspect-video flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300" style={{backgroundColor: 'rgba(0, 255, 255, 0.1)'}}>
+                  {game.emoji}
                 </div>
 
                 {/* Game Info */}
-                <div className="p-8 relative z-20 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">{game.name}</h3>
-                      <span className="inline-block px-4 py-2 rounded-full bg-purple-500/50 border border-purple-400/50 text-purple-200 text-sm font-semibold">
-                        {game.category}
-                      </span>
-                    </div>
-                  </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-black mb-2 tracking-wider" style={{fontFamily: "'Orbitron', sans-serif", color: '#06b6d4'}}>
+                    {game.name}
+                  </h3>
+                  <p className="text-xs tracking-widest mb-4" style={{fontFamily: "'Space Mono', monospace", color: '#ff0096'}}>
+                    {game.category}
+                  </p>
                   <div className="flex gap-1">
-                    {[...Array(game.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} style={{color: '#ffd700'}}>★</span>
                     ))}
                   </div>
                 </div>
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-cyan-600/0 via-transparent to-transparent group-hover:from-cyan-600/20 transition-all pointer-events-none" />
+                {/* Hover Border Glow */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all pointer-events-none" style={{boxShadow: 'inset 0 0 20px rgba(0, 255, 255, 0.3)'}} />
               </Link>
             ))}
           </div>
@@ -204,74 +231,88 @@ export default function Home() {
           <div className="text-center">
             <Link
               href="/jogos"
-              className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl border-2 border-cyan-400 text-cyan-300 hover:bg-cyan-400/10 transition-all font-bold text-lg"
+              className="inline-block px-10 py-4 font-mono font-bold transition-all tracking-wider"
+              style={{
+                border: '2px solid #06b6d4',
+                color: '#06b6d4',
+                textShadow: '0 0 10px rgba(0, 255, 255, 0.8)',
+                fontFamily: "'Space Mono', monospace"
+              }}
             >
-              🎮 Ver Todos os +50 Jogos
-              <ArrowRight className="w-5 h-5" />
+              ▶ VER TODOS OS +50 JOGOS
             </Link>
           </div>
         </div>
       </section>
 
-      {/* How It Works - TIMELINE */}
-      <section className="py-32 border-t border-purple-500/30 bg-gradient-to-b from-slate-900/50 to-transparent">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-5xl font-black text-center mb-4 text-white">
-            Comece em 4 Passos
+      {/* How It Works - Retro Steps */}
+      <section className="py-32 border-t-2 border-cyan-500/30">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-black text-center mb-2 tracking-wider" style={{fontFamily: "'Orbitron', sans-serif", color: '#06b6d4', textShadow: '0 0 20px rgba(0, 255, 255, 0.6)'}}>
+            COMECE EM 4 PASSOS
           </h2>
-          <p className="text-center text-gray-400 mb-20 text-lg">
-            Do zero ao herói em minutos
+          <p className="text-center mb-16 text-sm tracking-widest" style={{fontFamily: "'Space Mono', monospace", color: '#ff0096'}}>
+            &gt;&gt; DO ZERO AO HERÓI EM MINUTOS &lt;&lt;
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
-              { number: "1", title: "Cadastre-se", desc: "Registre com email", icon: "📝" },
-              { number: "2", title: "Escolha", desc: "Selecione seu jogo", icon: "🎮" },
-              { number: "3", title: "Jogue", desc: "Ganhe pontos", icon: "⚡" },
-              { number: "4", title: "Domine", desc: "Suba no ranking", icon: "👑" },
+              { number: "1", title: "CADASTRE-SE", desc: "Email", icon: "📝" },
+              { number: "2", title: "ESCOLHA", desc: "Seu Jogo", icon: "🎮" },
+              { number: "3", title: "JOGUE", desc: "Ganhe Pontos", icon: "⚡" },
+              { number: "4", title: "DOMINE", desc: "Ranking", icon: "👑" },
             ].map((step, idx) => (
-              <div key={idx} className="relative">
-                {/* Card */}
-                <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/10 rounded-3xl border border-purple-400/50 p-8 text-center h-full hover:border-cyan-400/50 transition-all hover:shadow-xl hover:shadow-purple-500/20">
-                  <div className="text-5xl mb-4">{step.icon}</div>
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center mx-auto mb-6 font-bold text-xl text-white">
-                    {step.number}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                  <p className="text-gray-400 text-sm">{step.desc}</p>
+              <div
+                key={idx}
+                className="p-6 text-center transition-all hover:scale-105 relative"
+                style={{
+                  border: '2px solid rgba(255, 0, 150, 0.5)',
+                  backgroundColor: 'rgba(0, 255, 255, 0.05)'
+                }}
+              >
+                <div className="text-3xl mb-3">{step.icon}</div>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg" style={{border: '2px solid #06b6d4', color: '#06b6d4', fontFamily: "'Space Mono', monospace"}}>
+                  {step.number}
                 </div>
-
-                {/* Arrow Connector */}
-                {idx < 3 && (
-                  <div className="hidden md:flex absolute top-1/2 -right-3 z-10 transform -translate-y-1/2">
-                    <ArrowRight className="w-6 h-6 text-purple-400" />
-                  </div>
-                )}
+                <h3 className="text-sm font-black mb-1 tracking-wider" style={{fontFamily: "'Orbitron', sans-serif", color: '#ff0096'}}>
+                  {step.title}
+                </h3>
+                <p className="text-xs" style={{fontFamily: "'Space Mono', monospace", color: '#b0e0e6'}}>
+                  {step.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA - PREMIUM */}
+      {/* Final CTA - Vaporwave */}
       <section className="py-32">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-cyan-600/20 via-purple-600/20 to-pink-600/20 border-2 border-purple-400/50 p-16 text-center group hover:border-cyan-400/80 transition-all">
-            {/* Background Glow */}
-            <div className="absolute -inset-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-10 blur-2xl transition-all" />
+          <div className="relative overflow-hidden p-12 text-center group transition-all" style={{border: '3px double #06b6d4', backgroundColor: 'rgba(0, 255, 255, 0.08)'}}>
+            {/* Geometric decorations */}
+            <div className="absolute top-4 left-4 w-8 h-8 border-2 border-pink-500/40" />
+            <div className="absolute bottom-4 right-4 w-8 h-8 border-2 border-cyan-500/40" />
 
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6 relative z-10">
-              Pronto para a <span className="bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent">Próxima Partida?</span>
+            <h2 className="text-4xl md:text-5xl font-black mb-4 relative z-10 tracking-wider" style={{fontFamily: "'Orbitron', sans-serif", color: '#06b6d4', textShadow: '0 0 20px rgba(0, 255, 255, 0.6)'}}>
+              PRONTO PARA A PRÓXIMA PARTIDA?
             </h2>
-            <p className="text-xl text-gray-300 mb-10 relative z-10 max-w-2xl mx-auto">
-              Milhares de jogadores já estão se divertindo. Junte-se agora e comece sua jornada para o topo do ranking!
+            <p className="text-lg mb-10 relative z-10 max-w-2xl mx-auto" style={{fontFamily: "'Space Mono', monospace", color: '#b0e0e6'}}>
+              &gt; Milhares de jogadores já estão se divertindo<br/>
+              &gt; Comece sua jornada para o topo do ranking agora &lt;
             </p>
 
             <Link
               href="/jogos"
-              className="inline-block relative z-10 px-12 py-6 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-2xl hover:from-cyan-600 hover:to-purple-600 transition-all font-bold text-xl shadow-2xl hover:shadow-cyan-500/50"
+              className="inline-block relative z-10 px-12 py-5 font-mono font-bold text-lg transition-all tracking-wider"
+              style={{
+                border: '2px solid #ff0096',
+                color: '#ff0096',
+                textShadow: '0 0 10px rgba(255, 0, 150, 0.8)',
+                fontFamily: "'Space Mono', monospace"
+              }}
             >
-              🚀 Jogar Agora - É Grátis!
+              ▶ JOGAR AGORA - GRÁTIS!
             </Link>
           </div>
         </div>
