@@ -3,225 +3,207 @@
 import Link from "next/link";
 
 export default function Home() {
-  const categories = [
-    { name: 'Ação', emoji: '⚔️', count: 12400, color: '#ff0096' },
-    { name: 'Puzzle', emoji: '🧩', count: 8200, color: '#00ffff' },
-    { name: 'Estratégia', emoji: '🎯', count: 5100, color: '#ffff00' },
-    { name: 'RPG', emoji: '🗡️', count: 6700, color: '#00ff00' },
-    { name: 'Corrida', emoji: '🏎️', count: 9300, color: '#ff00ff' },
-    { name: 'Esportes', emoji: '🏀', count: 7800, color: '#ff8800' },
-  ];
-
   const trendingGames = [
-    { name: 'Flappy Bird', file: 'Flappy Bird.exe', badge: 'HOT', badgeColor: '#ff0000', gradient: 'from-cyan-500 to-purple-500', category: 'AçãoFÁCIL' },
-    { name: 'Space Shooter', file: 'Space Shooter.exe', badge: 'TOP', badgeColor: '#ffff00', gradient: 'from-purple-500 to-pink-500', category: 'AçãoMÉDIO' },
-    { name: 'Maze Runner', file: 'Maze Runner.exe', badge: 'NEW', badgeColor: '#ffff00', gradient: 'from-yellow-500 to-black', category: 'PuzzleDIFÍCIL' },
-    { name: 'Puzzle Quest', file: 'Puzzle Quest.exe', badge: 'GEM', badgeColor: '#00ffff', gradient: 'from-green-500 to-black', category: 'PuzzleMÉDIO' },
-    { name: 'Dino Jump', file: 'Dino Jump.exe', badge: 'FAST', badgeColor: '#ff8800', gradient: 'from-orange-500 to-black', category: 'AçãoFÁCIL' },
-    { name: 'Memory Game', file: 'Memory Game.exe', badge: 'PICK', badgeColor: '#00ffff', gradient: 'from-blue-500 to-black', category: 'PuzzleFÁCIL' },
+    { name: 'Flappy Bird', category: 'Ação/Fácil' },
+    { name: 'Space Shooter', category: 'Ação/Médio' },
+    { name: 'Maze Runner', category: 'Puzzle/Difícil' },
+    { name: 'Puzzle Quest', category: 'Puzzle/Médio' },
+    { name: 'Dino Jump', category: 'Ação/Fácil' },
+    { name: 'Memory Game', category: 'Puzzle/Fácil' },
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-purple-900 via-purple-950 to-slate-950">
-      {/* CHECKERED HEADER */}
-      <div className="w-full h-8 flex" style={{background: 'repeating-linear-gradient(45deg, #00ffff 0px, #00ffff 8px, #ff00ff 8px, #ff00ff 16px)'}}>
+    <main className="min-h-screen" style={{backgroundColor: '#1a0033', position: 'relative', overflow: 'hidden'}}>
+      {/* Animated Stars Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 rounded-full animate-pulse"
+            style={{
+              backgroundColor: '#ffffff',
+              opacity: Math.random() * 0.7 + 0.3,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`
+            }}
+          />
+        ))}
+      </div>
+
+      {/* CHECKERED HEADER - Colorful */}
+      <div className="w-full h-6 flex relative z-10" style={{
+        background: 'repeating-linear-gradient(45deg, #ffff00 0px, #ffff00 6px, #0088ff 6px, #0088ff 12px, #00ff00 12px, #00ff00 18px, #ff00ff 18px, #ff00ff 24px)',
+        boxShadow: '0 4px 0px rgba(0, 255, 255, 0.8)'
+      }}>
       </div>
 
       {/* HERO SECTION */}
-      <section className="px-4 sm:px-6 py-12 sm:py-20 text-center">
-        {/* Main Title - Pixel Art Style */}
-        <h1
-          className="mb-4 leading-none"
-          style={{
-            fontSize: 'clamp(2.5rem, 10vw, 4.5rem)',
-            fontFamily: "'Press Start 2P', cursive",
-            color: '#ffffff',
-            textShadow: '3px 3px 0px #ff00ff, 6px 6px 0px #00ffff, 9px 9px 0px #ff0000',
-            letterSpacing: '4px',
-            filter: 'drop-shadow(0 0 20px rgba(0, 255, 255, 0.8))'
-          }}
-        >
-          GAMES HUB
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-base sm:text-lg mb-6" style={{fontFamily: "'Space Mono', monospace", color: '#ff0000', letterSpacing: '2px', fontWeight: 'bold'}}>
-          ⭐ O UNIVERSO DOS JOGOS ⭐
-        </p>
-
-        {/* Description */}
-        <p className="text-xs sm:text-sm mb-8 max-w-2xl mx-auto" style={{fontFamily: "'Space Mono', monospace", color: '#cccccc'}}>
-          Explore centenas de jogos incríveis, compita globalmente e domine os rankings. 100% radical, 100% anos 90. 😎
-        </p>
-
-        {/* CTA Buttons - Windows 95 Style */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
-          <Link
-            href="/jogos"
-            className="px-6 sm:px-10 py-3 text-sm sm:text-base font-bold transition-all hover:scale-105"
+      <section className="relative z-20 px-4 sm:px-6 py-16 sm:py-24 text-center min-h-screen flex items-center justify-center">
+        {/* Main Titles */}
+        <div>
+          {/* GAMES */}
+          <h1
+            className="leading-none mb-0"
             style={{
-              backgroundColor: '#00ffff',
-              color: '#000000',
-              border: '3px solid #00ffff',
-              fontFamily: "'Space Mono', monospace",
-              textShadow: '1px 1px 0px rgba(0,0,0,0.3)',
-              boxShadow: 'inset 1px 1px 0px rgba(255,255,255,0.8), inset -1px -1px 0px rgba(0,0,0,0.3)'
+              fontSize: 'clamp(2.5rem, 14vw, 5.5rem)',
+              fontFamily: "'Press Start 2P', cursive",
+              color: '#00ff00',
+              letterSpacing: '6px',
+              textShadow: '0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00, 0 0 80px rgba(0, 255, 0, 0.6), 3px 3px 0px #ff00ff',
+              fontWeight: 'bold'
             }}
           >
-            ▶ EXPLORAR JOGOS
-          </Link>
-          <Link
-            href="/ranking"
-            className="px-6 sm:px-10 py-3 text-sm sm:text-base font-bold transition-all hover:scale-105"
+            GAMES
+          </h1>
+
+          {/* HUB */}
+          <h1
+            className="leading-none mt-0"
             style={{
-              backgroundColor: '#ff00ff',
-              color: '#ffffff',
-              border: '3px solid #ff00ff',
-              fontFamily: "'Space Mono', monospace",
-              textShadow: '1px 1px 0px rgba(0,0,0,0.3)',
-              boxShadow: 'inset 1px 1px 0px rgba(255,255,255,0.8), inset -1px -1px 0px rgba(0,0,0,0.3)'
+              fontSize: 'clamp(2.5rem, 14vw, 5.5rem)',
+              fontFamily: "'Press Start 2P', cursive",
+              color: '#ff00ff',
+              letterSpacing: '6px',
+              textShadow: '0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff, 0 0 80px rgba(255, 0, 255, 0.6), 3px 3px 0px #00ff00',
+              fontWeight: 'bold',
+              marginBottom: '16px'
             }}
           >
-            👑 RANKING GLOBAL
-          </Link>
-        </div>
+            HUB
+          </h1>
 
-        {/* Stats - Windows .exe style */}
-        <div className="flex flex-wrap gap-3 justify-center mb-4">
-          {[
-            { file: 'stats.exe', value: '1000+', label: 'PLAYERS', color: '#00ffff' },
-            { file: 'stats.exe', value: '50+', label: 'GAMES', color: '#00ffff' },
-            { file: 'stats.exe', value: '24/7', label: 'ONLINE', color: '#00ffff' },
-          ].map((stat, i) => (
-            <div key={i} className="border-4" style={{borderColor: stat.color, backgroundColor: '#cccccc', padding: '6px 12px', minWidth: '120px'}}>
-              <p className="text-xs" style={{fontFamily: "'Space Mono', monospace", color: '#000000', fontWeight: 'bold'}}>
-                {stat.file}
-              </p>
-              <p className="text-lg font-black" style={{fontFamily: "'Orbitron', sans-serif", color: stat.color, textShadow: `0 0 10px ${stat.color}`}}>
-                {stat.value}
-              </p>
-              <p className="text-xs" style={{fontFamily: "'Space Mono', monospace", color: '#000000', fontWeight: 'bold'}}>
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+          {/* Subtitle */}
+          <p className="text-base sm:text-lg mb-6" style={{fontFamily: "'Space Mono', monospace", color: '#00ffff', letterSpacing: '2px', fontWeight: 'bold', textShadow: '0 0 10px #00ffff'}}>
+            O UNIVERSO DOS JOGOS
+          </p>
 
-      {/* GÊNEROS SECTION */}
-      <section className="px-4 sm:px-6 py-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl sm:text-3xl font-black" style={{fontFamily: "'Press Start 2P', cursive", color: '#00ffff', textShadow: '2px 2px 0px #ff00ff'}}>
-              ◄ GÊNEROS ►
-            </h2>
-            <p style={{fontFamily: "'Space Mono', monospace", color: '#ff00ff', fontSize: '12px', fontWeight: 'bold'}}>
-              VER TUDO →
-            </p>
+          {/* Description Lines */}
+          <p className="text-xs sm:text-sm mb-3" style={{fontFamily: "'Space Mono', monospace", color: '#ffff00', fontWeight: 'bold', textShadow: '0 0 5px #ffff00'}}>
+            &gt;&gt;&gt; EXPLORE CENTENAS DE JOGOS INCRÍVEIS &lt;&lt;&lt;
+          </p>
+          <p className="text-xs sm:text-sm mb-8" style={{fontFamily: "'Space Mono', monospace", color: '#ffff00', fontWeight: 'bold', textShadow: '0 0 5px #ffff00'}}>
+            &gt;&gt;&gt; COMPITA GLOBALMENTE E DOMINE OS RANKINGS &lt;&lt;&lt;
+          </p>
+
+          {/* CTA Buttons - Neon Style */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <Link
+              href="/jogos"
+              className="px-8 sm:px-12 py-3 text-sm sm:text-base font-black transition-all hover:scale-110"
+              style={{
+                color: '#00ff00',
+                fontFamily: "'Space Mono', monospace",
+                border: '3px solid #00ff00',
+                backgroundColor: 'transparent',
+                textShadow: '0 0 10px #00ff00',
+                boxShadow: '0 0 20px rgba(0, 255, 0, 0.8), inset 0 0 20px rgba(0, 255, 0, 0.1)',
+                letterSpacing: '1px'
+              }}
+            >
+              ▶ EXPLORAR
+            </Link>
+            <Link
+              href="/ranking"
+              className="px-8 sm:px-12 py-3 text-sm sm:text-base font-black transition-all hover:scale-110"
+              style={{
+                color: '#ff00ff',
+                fontFamily: "'Space Mono', monospace",
+                border: '3px solid #ff00ff',
+                backgroundColor: 'transparent',
+                textShadow: '0 0 10px #ff00ff',
+                boxShadow: '0 0 20px rgba(255, 0, 255, 0.8), inset 0 0 20px rgba(255, 0, 255, 0.1)',
+                letterSpacing: '1px'
+              }}
+            >
+              👑 RANKING
+            </Link>
           </div>
 
-          {/* Categories Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
-            {categories.map((cat) => (
+          {/* Stats - Neon Style */}
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+            {[
+              { value: '1000+', label: 'PLAYERS', color: '#00ff00' },
+              { value: '50+', label: 'GAMES', color: '#ff00ff' },
+              { value: '24/7', label: 'ONLINE', color: '#00ffff' },
+            ].map((stat, i) => (
               <div
-                key={cat.name}
-                className="p-3 border-4 transition-all hover:scale-105 cursor-pointer"
-                style={{borderColor: cat.color, backgroundColor: 'rgba(0, 0, 0, 0.5)'}}
+                key={i}
+                className="p-4 transition-all hover:scale-105"
+                style={{
+                  border: `3px solid ${stat.color}`,
+                  backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                  boxShadow: `0 0 15px ${stat.color}, inset 0 0 15px ${stat.color}20`,
+                  backdropFilter: 'blur(10px)'
+                }}
               >
-                <p className="text-2xl mb-1">{cat.emoji}</p>
-                <p className="text-sm font-bold" style={{fontFamily: "'Space Mono', monospace", color: cat.color}}>
-                  {cat.count.toLocaleString()}
+                <p className="font-black text-2xl mb-2" style={{color: stat.color, fontFamily: "'Orbitron', sans-serif", textShadow: `0 0 10px ${stat.color}`}}>
+                  {stat.value}
                 </p>
-                <p className="text-xs" style={{fontFamily: "'Space Mono', monospace", color: '#ffffff', fontSize: '10px'}}>
-                  {cat.name}
+                <p className="text-xs font-bold" style={{color: stat.color, fontFamily: "'Space Mono', monospace", letterSpacing: '1px'}}>
+                  {stat.label}
                 </p>
               </div>
             ))}
           </div>
+
+          {/* Decorative Triangles */}
+          <div className="flex gap-4 justify-center mt-12">
+            <div style={{width: '0', height: '0', borderLeft: '15px solid transparent', borderRight: '15px solid transparent', borderBottom: '25px solid #ffff00'}} />
+            <div style={{width: '0', height: '0', borderLeft: '15px solid transparent', borderRight: '15px solid transparent', borderBottom: '25px solid #ff00ff'}} />
+            <div style={{width: '0', height: '0', borderLeft: '15px solid transparent', borderRight: '15px solid transparent', borderBottom: '25px solid #00ffff'}} />
+          </div>
         </div>
       </section>
 
-      {/* EM ALTA SECTION */}
-      <section className="px-4 sm:px-6 py-12">
+      {/* GAMES SHOWCASE */}
+      <section className="relative z-20 px-4 sm:px-6 py-16 bg-gradient-to-b from-transparent via-purple-900/20 to-transparent">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-black" style={{fontFamily: "'Press Start 2P', cursive", color: '#ffff00', textShadow: '2px 2px 0px #000000'}}>
-              ▲ EM ALTA ▼
-            </h2>
-            <p style={{fontFamily: "'Space Mono', monospace", color: '#ffff00', fontSize: '12px', fontWeight: 'bold'}}>
-              Mais jogados desta semana
-            </p>
-          </div>
+          <h2 className="text-2xl sm:text-3xl font-black text-center mb-10" style={{fontFamily: "'Press Start 2P', cursive", color: '#00ffff', textShadow: '0 0 20px #00ffff'}}>
+            ◄ EM ALTA ►
+          </h2>
 
-          {/* Games Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {trendingGames.map((game, i) => (
               <Link
                 key={i}
                 href={`/jogos/${i}`}
                 className="group transition-all hover:scale-105 overflow-hidden"
-                style={{border: '3px solid #cccccc'}}
+                style={{
+                  border: '3px solid #00ffff',
+                  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                  boxShadow: '0 0 20px rgba(0, 255, 255, 0.5)'
+                }}
               >
-                {/* Window Title Bar */}
                 <div
-                  className="px-2 py-1 flex items-center justify-between"
+                  className="aspect-video flex items-center justify-center text-5xl relative"
                   style={{
-                    backgroundColor: '#000080',
-                    color: '#ffffff',
-                    fontSize: '10px',
-                    fontFamily: "'Space Mono', monospace",
-                    fontWeight: 'bold'
+                    background: 'linear-gradient(135deg, #ff00ff, #00ffff)',
+                    boxShadow: 'inset 0 0 30px rgba(0, 255, 255, 0.3)'
                   }}
                 >
-                  <span>{game.file}</span>
-                  <span>_⬜❌</span>
+                  <span style={{textShadow: '0 0 20px rgba(0,0,0,0.8)', filter: 'drop-shadow(0 0 10px rgba(255, 0, 255, 0.8))'}}>🎮</span>
                 </div>
 
-                {/* Game Image */}
-                <div
-                  className="aspect-video flex items-center justify-center text-4xl relative overflow-hidden group-hover:scale-110 transition-transform"
-                  style={{background: `linear-gradient(135deg, var(--color1), var(--color2))`, '--color1': game.gradient.split(' to-')[0].replace('from-', ''), '--color2': game.gradient.split(' to-')[1]}}
-                >
-                  {/* Badge */}
-                  <div
-                    className="absolute top-2 left-2 px-2 py-1 text-xs font-black"
-                    style={{
-                      backgroundColor: game.badgeColor,
-                      color: '#000000',
-                      border: '2px solid #000000',
-                      fontFamily: "'Space Mono', monospace"
-                    }}
-                  >
-                    {game.badge}
-                  </div>
-
-                  {/* Placeholder Icon */}
-                  <span style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>▌</span>
-                </div>
-
-                {/* Game Info */}
-                <div style={{backgroundColor: '#cccccc', padding: '8px'}}>
-                  <h3 className="font-bold text-xs mb-1" style={{fontFamily: "'Space Mono', monospace", color: '#000000'}}>
+                <div style={{backgroundColor: 'rgba(0, 0, 0, 0.6)', padding: '12px', borderTop: '2px solid #00ffff'}}>
+                  <h3 className="font-black text-sm mb-2" style={{fontFamily: "'Space Mono', monospace", color: '#00ffff', textShadow: '0 0 10px #00ffff'}}>
                     {game.name}
                   </h3>
-                  <div className="flex gap-1 mb-2 flex-wrap">
-                    <span className="text-xs px-1" style={{backgroundColor: '#ff00ff', color: '#ffffff', fontFamily: "'Space Mono', monospace", fontWeight: 'bold', border: '1px solid #000000'}}>
-                      {game.category.slice(0, 6)}
-                    </span>
-                    <span className="text-xs px-1" style={{backgroundColor: '#ffff00', color: '#000000', fontFamily: "'Space Mono', monospace", fontWeight: 'bold', border: '1px solid #000000'}}>
-                      {game.category.slice(6)}
-                    </span>
-                  </div>
+                  <p className="text-xs" style={{fontFamily: "'Space Mono', monospace", color: '#ffff00', marginBottom: '8px'}}>
+                    {game.category}
+                  </p>
                   <button
-                    className="w-full text-xs font-bold py-1 border-t border-b-2"
+                    className="w-full py-2 text-xs font-black transition-all"
                     style={{
-                      backgroundColor: '#cccccc',
-                      borderColor: '#000000',
+                      color: '#00ff00',
                       fontFamily: "'Space Mono', monospace",
-                      color: '#000000'
+                      border: '2px solid #00ff00',
+                      backgroundColor: 'transparent',
+                      textShadow: '0 0 10px #00ff00',
+                      boxShadow: '0 0 10px rgba(0, 255, 0, 0.5)'
                     }}
                   >
-                    ▶ JOGAR AGORA
+                    ▶ JOGAR
                   </button>
                 </div>
               </Link>
