@@ -30,7 +30,7 @@ export default function Home() {
                 color: '#06b6d4',
                 fontFamily: "'Press Start 2P', cursive",
                 letterSpacing: '2px',
-                textShadow: '0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 0, 150, 0.8), 0 0 40px rgba(255, 0, 150, 0.6), 2px 2px 0 rgba(255, 0, 150, 0.5), -2px -2px 0 rgba(0, 255, 255, 0.5)',
+                textShadow: '0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.6), 0 0 50px rgba(255, 0, 150, 1), 0 0 60px rgba(255, 0, 150, 0.8), 0 0 70px rgba(255, 0, 150, 0.6), 2px 2px 5px rgba(255, 0, 150, 0.8), -2px -2px 5px rgba(0, 255, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.4)',
                 animation: 'neon-flicker 0.15s infinite'
               }}
             >
