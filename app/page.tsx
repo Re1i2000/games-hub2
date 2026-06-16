@@ -54,13 +54,13 @@ export default function Home() {
             Explore centenas de jogos incríveis, compita globalmente e domine os rankings. 100% radical, 100% anos 90. 😎
           </p>
 
-          {/* Yellow Description Lines */}
-          <p className="text-xs sm:text-sm mb-2" style={{fontFamily: "'Space Mono', monospace", color: '#ffff00', fontWeight: 'bold', textShadow: '0 0 5px #ffff00'}}>
+          {/* Yellow Description Lines - VISIBLE */}
+          <div style={{backgroundColor: '#ffff00', padding: '8px', margin: '8px auto', maxWidth: '100%', fontFamily: "'Space Mono', monospace", fontWeight: 'bold', color: '#000000', fontSize: '12px'}}>
             &gt;&gt;&gt; EXPLORE CENTENAS DE JOGOS INCRÍVEIS &lt;&lt;&lt;
-          </p>
-          <p className="text-xs sm:text-sm mb-8" style={{fontFamily: "'Space Mono', monospace", color: '#ffff00', fontWeight: 'bold', textShadow: '0 0 5px #ffff00'}}>
+          </div>
+          <div style={{backgroundColor: '#ffff00', padding: '8px', margin: '0 auto 16px auto', maxWidth: '100%', fontFamily: "'Space Mono', monospace", fontWeight: 'bold', color: '#000000', fontSize: '12px'}}>
             &gt;&gt;&gt; COMPITA GLOBALMENTE E DOMINE OS RANKINGS &lt;&lt;&lt;
-          </p>
+          </div>
 
           {/* CTA Buttons - Proper Style */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10 max-w-2xl mx-auto">
@@ -93,7 +93,7 @@ export default function Home() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-3 max-w-2xl mx-auto">
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', maxWidth: '800px', margin: '0 auto'}}>
             {[
               { value: '1000+', label: 'PLAYERS', color: '#00ffff' },
               { value: '50+', label: 'GAMES', color: '#ff00ff' },
@@ -103,13 +103,14 @@ export default function Home() {
                 border: `3px solid ${stat.color}`,
                 backgroundColor: '#cccccc',
                 padding: '12px',
-                fontFamily: "'Space Mono', monospace"
+                fontFamily: "'Space Mono', monospace",
+                textAlign: 'center'
               }}>
-                <p style={{color: '#000000', fontWeight: 'bold', margin: '0', fontSize: '12px'}}>stats.exe</p>
-                <p style={{color: stat.color, fontWeight: 'bold', margin: '4px 0', fontSize: '18px', fontFamily: "'Orbitron', sans-serif", textShadow: `0 0 10px ${stat.color}`}}>
+                <p style={{color: '#000000', fontWeight: 'bold', margin: '0 0 4px 0', fontSize: '10px'}}>stats.exe</p>
+                <p style={{color: stat.color, fontWeight: 'bold', margin: '6px 0', fontSize: '20px', fontFamily: "'Orbitron', sans-serif", textShadow: `0 0 10px ${stat.color}`}}>
                   {stat.value}
                 </p>
-                <p style={{color: '#000000', fontWeight: 'bold', margin: '0', fontSize: '11px'}}>
+                <p style={{color: '#000000', fontWeight: 'bold', margin: '4px 0 0 0', fontSize: '11px'}}>
                   {stat.label}
                 </p>
               </div>
