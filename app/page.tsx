@@ -13,85 +13,76 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-950 via-purple-950 to-slate-950">
+    <main className="min-h-screen bg-slate-950">
       {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center justify-center px-6 py-20 overflow-hidden">
-        {/* Animated Background Orbs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-2000" />
-          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse delay-1000" />
-        </div>
-
-        <div className="max-w-5xl w-full text-center relative z-10">
-          {/* Main Title with Neon Glow */}
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6">
+        <div className="max-w-4xl w-full text-center">
+          {/* Main Title */}
           <h1
-            className="mb-4 leading-tight"
+            className="mb-4"
             style={{
-              fontSize: 'clamp(2.5rem, 14vw, 5.5rem)',
+              fontSize: 'clamp(2rem, 12vw, 4.5rem)',
               fontFamily: "'Press Start 2P', cursive",
               color: '#06b6d4',
-              letterSpacing: '4px',
-              textShadow: '0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6), 0 0 40px rgba(255, 0, 150, 0.8), 0 0 60px rgba(255, 0, 150, 0.6), 0 0 80px rgba(255, 0, 150, 0.4)',
-              animation: 'neon-flicker 0.15s infinite'
+              letterSpacing: '3px',
+              textShadow: '0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(255, 0, 150, 0.6)',
+              animation: 'neon-flicker 0.15s infinite',
+              lineHeight: '1.1'
             }}
           >
             GAMES HUB
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-2xl mb-8" style={{fontFamily: "'Orbitron', sans-serif", color: '#ffffff', letterSpacing: '2px', textShadow: '0 0 15px rgba(255, 0, 150, 0.7)'}}>
-            O UNIVERSO DOS JOGOS
+          <p className="text-base sm:text-lg mb-8" style={{fontFamily: "'Orbitron', sans-serif", color: '#ffffff', letterSpacing: '1px'}}>
+            O Universo dos Jogos
           </p>
 
           {/* Description */}
-          <p className="text-sm sm:text-base mb-12 max-w-2xl mx-auto leading-relaxed" style={{fontFamily: "'Space Mono', monospace", color: '#b0e0e6', fontSize: '14px'}}>
+          <p className="text-sm mb-10 max-w-xl mx-auto" style={{fontFamily: "'Space Mono', monospace", color: '#b0e0e6', lineHeight: '1.6'}}>
             Explore centenas de jogos incríveis, compita globalmente e domine os rankings.
-            <br />Sua próxima aventura começa aqui.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-12">
             <Link
               href="/jogos"
-              className="px-8 sm:px-12 py-4 border-2 font-bold text-sm tracking-widest transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50"
+              className="px-6 sm:px-8 py-2 text-sm font-bold border transition-all hover:scale-105"
               style={{
                 borderColor: '#06b6d4',
                 color: '#06b6d4',
                 fontFamily: "'Space Mono', monospace",
-                backgroundColor: 'rgba(6, 182, 212, 0.1)',
-                textShadow: '0 0 10px rgba(0, 255, 255, 0.6)'
+                border: '1px solid rgba(6, 182, 212, 0.6)'
               }}
             >
-              ▶ EXPLORAR JOGOS
+              Explorar Jogos
             </Link>
             <Link
               href="/ranking"
-              className="px-8 sm:px-12 py-4 border-2 font-bold text-sm tracking-widest transition-all duration-300 hover:shadow-2xl hover:shadow-pink-500/50"
+              className="px-6 sm:px-8 py-2 text-sm font-bold border transition-all hover:scale-105"
               style={{
                 borderColor: '#ff0096',
                 color: '#ff0096',
                 fontFamily: "'Space Mono', monospace",
-                backgroundColor: 'rgba(255, 0, 150, 0.1)',
-                textShadow: '0 0 10px rgba(255, 0, 150, 0.6)'
+                border: '1px solid rgba(255, 0, 150, 0.6)'
               }}
             >
-              👑 RANKING GLOBAL
+              Ranking Global
             </Link>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-xl mx-auto">
+          <div className="grid grid-cols-3 gap-4 max-w-sm mx-auto">
             {[
               { value: '1000+', label: 'PLAYERS' },
               { value: '50+', label: 'GAMES' },
               { value: '24/7', label: 'ONLINE' },
             ].map((stat) => (
-              <div key={stat.label} className="p-4" style={{backgroundColor: 'rgba(6, 182, 212, 0.12)', border: '2px solid rgba(6, 182, 212, 0.3)'}}>
-                <p className="font-black text-xl sm:text-2xl" style={{color: '#ff0096', fontFamily: "'Orbitron', sans-serif"}}>
+              <div key={stat.label} style={{borderBottom: '1px solid rgba(6, 182, 212, 0.2)', paddingBottom: '8px'}}>
+                <p className="font-black text-lg" style={{color: '#06b6d4', fontFamily: "'Orbitron', sans-serif"}}>
                   {stat.value}
                 </p>
-                <p className="text-xs mt-2 tracking-wider" style={{color: '#b0e0e6', fontFamily: "'Space Mono', monospace"}}>
+                <p className="text-xs mt-1" style={{color: '#b0e0e6', fontFamily: "'Space Mono', monospace"}}>
                   {stat.label}
                 </p>
               </div>
@@ -100,59 +91,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DIVIDER */}
-      <div style={{height: '1px', background: 'linear-gradient(90deg, rgba(6, 182, 212, 0), rgba(6, 182, 212, 0.5), rgba(6, 182, 212, 0))'}} />
-
       {/* EXPLORE SECTION */}
-      <section className="px-6 py-24">
+      <section className="px-4 sm:px-6 py-16 sm:py-20">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="mb-14">
-            <h2 className="text-3xl sm:text-4xl font-black mb-4" style={{fontFamily: "'Orbitron', sans-serif", color: '#06b6d4', letterSpacing: '2px', textShadow: '0 0 20px rgba(0, 255, 255, 0.5)'}}>
+          <div className="mb-10">
+            <h2 className="text-2xl sm:text-3xl font-black mb-1" style={{fontFamily: "'Orbitron', sans-serif", color: '#06b6d4'}}>
               Explore
             </h2>
-            <p className="text-sm" style={{fontFamily: "'Space Mono', monospace", color: '#ff0096', letterSpacing: '1px'}}>
-              &gt;&gt; CENTENAS DE TÍTULOS INCRÍVEIS &lt;&lt;
-            </p>
           </div>
 
           {/* Search & Filters */}
-          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-12">
-            <div className="flex-1 w-full relative">
+          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center mb-8">
+            <div className="flex-1 w-full">
               <input
                 type="text"
-                placeholder="🔍 Buscar jogos..."
-                className="w-full px-4 py-3 text-sm transition-all"
+                placeholder="Search..."
+                className="w-full px-3 sm:px-4 py-2 text-sm bg-slate-900 text-gray-300"
                 style={{
-                  backgroundColor: 'rgba(6, 182, 212, 0.08)',
-                  border: '2px solid rgba(6, 182, 212, 0.25)',
-                  color: '#b0e0e6',
+                  border: '1px solid rgba(6, 182, 212, 0.2)',
                   fontFamily: "'Space Mono', monospace",
                   outline: 'none'
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = 'rgba(6, 182, 212, 0.8)';
-                  e.target.style.boxShadow = '0 0 20px rgba(6, 182, 212, 0.3)';
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = 'rgba(6, 182, 212, 0.25)';
-                  e.target.style.boxShadow = 'none';
                 }}
               />
             </div>
 
             {/* Filter Tabs */}
             <div className="flex gap-2 flex-wrap">
-              {['Todos', 'Fácil', 'Médio', 'Difícil'].map((filter) => (
+              {['All', 'Easy', 'Medium', 'Hard'].map((filter) => (
                 <button
                   key={filter}
-                  className="px-4 py-2 text-xs font-bold border-2 transition-all duration-200 cursor-pointer"
+                  className="px-3 py-2 text-xs font-bold transition-all"
                   style={{
-                    borderColor: filter === 'Todos' ? '#06b6d4' : 'rgba(6, 182, 212, 0.2)',
-                    color: filter === 'Todos' ? '#06b6d4' : '#b0e0e6',
-                    backgroundColor: filter === 'Todos' ? 'rgba(6, 182, 212, 0.15)' : 'transparent',
-                    fontFamily: "'Space Mono', monospace",
-                    textShadow: filter === 'Todos' ? '0 0 10px rgba(0, 255, 255, 0.6)' : 'none'
+                    borderBottom: filter === 'All' ? '2px solid #06b6d4' : '1px solid rgba(6, 182, 212, 0.2)',
+                    color: filter === 'All' ? '#06b6d4' : '#b0e0e6',
+                    backgroundColor: 'transparent',
+                    fontFamily: "'Space Mono', monospace"
                   }}
                 >
                   {filter}
@@ -161,40 +135,40 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Games Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+          {/* Games Grid - Horizontal */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {games.map((game) => (
               <Link
                 key={game.id}
                 href={`/jogos/${game.id}`}
-                className="group overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer"
+                className="group overflow-hidden transition-all hover:scale-105"
                 style={{
-                  backgroundColor: 'rgba(6, 182, 212, 0.08)',
-                  border: '2px solid rgba(6, 182, 212, 0.25)'
+                  backgroundColor: 'rgba(6, 182, 212, 0.05)',
+                  border: '1px solid rgba(6, 182, 212, 0.15)'
                 }}
               >
-                {/* Game Image/Emoji */}
+                {/* Game Image */}
                 <div
-                  className="aspect-video flex items-center justify-center text-5xl sm:text-6xl transition-all duration-300 group-hover:scale-125"
+                  className="aspect-video flex items-center justify-center text-4xl sm:text-5xl transition-all group-hover:scale-110"
                   style={{
-                    backgroundColor: 'rgba(6, 182, 212, 0.12)'
+                    backgroundColor: 'rgba(6, 182, 212, 0.08)'
                   }}
                 >
                   {game.emoji}
                 </div>
 
                 {/* Game Info */}
-                <div className="p-5">
-                  <h3 className="font-bold text-sm mb-3 line-clamp-2" style={{fontFamily: "'Orbitron', sans-serif", color: '#06b6d4', letterSpacing: '0.5px'}}>
+                <div className="p-3 sm:p-4">
+                  <h3 className="font-bold text-xs sm:text-sm mb-2 line-clamp-2" style={{fontFamily: "'Orbitron', sans-serif", color: '#06b6d4'}}>
                     {game.name}
                   </h3>
 
-                  {/* Category & Difficulty Badges */}
-                  <div className="flex gap-2 flex-wrap mb-3">
-                    <span className="text-xs px-2 py-1 font-bold" style={{backgroundColor: 'rgba(0, 255, 255, 0.15)', color: '#06b6d4', border: '1px solid rgba(0, 255, 255, 0.3)', fontFamily: "'Space Mono', monospace"}}>
+                  {/* Badges */}
+                  <div className="flex gap-2 mb-2">
+                    <span className="text-xs px-1.5 py-0.5" style={{backgroundColor: 'rgba(0, 255, 255, 0.1)', color: '#06b6d4', border: '1px solid rgba(0, 255, 255, 0.2)', fontFamily: "'Space Mono', monospace"}}>
                       {game.category}
                     </span>
-                    <span className="text-xs px-2 py-1 font-bold" style={{backgroundColor: 'rgba(255, 0, 150, 0.15)', color: '#ff0096', border: '1px solid rgba(255, 0, 150, 0.3)', fontFamily: "'Space Mono', monospace"}}>
+                    <span className="text-xs px-1.5 py-0.5" style={{backgroundColor: 'rgba(255, 0, 150, 0.1)', color: '#ff0096', border: '1px solid rgba(255, 0, 150, 0.2)', fontFamily: "'Space Mono', monospace"}}>
                       {game.difficulty}
                     </span>
                   </div>
@@ -202,29 +176,12 @@ export default function Home() {
                   {/* Rating */}
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <span key={i} style={{color: i < game.rating ? '#ffd700' : 'rgba(255, 215, 0, 0.2)', fontSize: '14px'}}>★</span>
+                      <span key={i} style={{color: i < game.rating ? '#ffd700' : 'rgba(255, 215, 0, 0.15)', fontSize: '12px'}}>★</span>
                     ))}
                   </div>
                 </div>
               </Link>
             ))}
-          </div>
-
-          {/* See All Button */}
-          <div className="text-center">
-            <Link
-              href="/jogos"
-              className="px-10 py-4 border-2 font-bold text-sm tracking-widest inline-block transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50"
-              style={{
-                borderColor: '#06b6d4',
-                color: '#06b6d4',
-                fontFamily: "'Space Mono', monospace",
-                backgroundColor: 'rgba(6, 182, 212, 0.1)',
-                textShadow: '0 0 10px rgba(0, 255, 255, 0.6)'
-              }}
-            >
-              ▶ VER TODOS OS JOGOS
-            </Link>
           </div>
         </div>
       </section>
