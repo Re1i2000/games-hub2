@@ -23,9 +23,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-purple-900 via-slate-900 to-purple-950 relative overflow-hidden">
-      {/* CHECKERED HEADER */}
-      <div className="w-full h-6 relative z-10" style={{
-        background: 'repeating-linear-gradient(45deg, #00ffff 0px, #00ffff 8px, #ff00ff 8px, #ff00ff 16px)'
+      {/* CHECKERED HEADER - MUST BE VISIBLE */}
+      <div style={{
+        width: '100%',
+        height: '24px',
+        position: 'relative',
+        zIndex: 50,
+        background: 'repeating-linear-gradient(45deg, #00ffff 0px, #00ffff 8px, #ff00ff 8px, #ff00ff 16px)',
+        boxShadow: '0 2px 0 rgba(0, 255, 255, 0.8)'
       }}>
       </div>
 
