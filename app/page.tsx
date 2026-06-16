@@ -1,8 +1,43 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { builder, BuilderContent } from '@builder.io/sdk';
+
+builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY || '');
+
 import Link from "next/link";
 
 export default function Home() {
+  const [content, setContent] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      try {
+        const pageContent = await builder.get('page', {
+          userAttributes: { urlPath: '/' },
+        }).promise();
+        setContent(pageContent);
+      } catch (error) {
+        console.log('Builder.io content not found, using fallback');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchContent();
+  }, []);
+
+  // Se tiver conteúdo do Builder.io, renderiza
+  if (content) {
+    return (
+      <main>
+        <BuilderContent content={content} />
+      </main>
+    );
+  }
+
+  // Fallback: conteúdo padrão
   const categories = [
     { emoji: '⚔️', count: 12400, color: '#ff00ff' },
     { emoji: '🎯', count: 8200, color: '#00ffff' },
